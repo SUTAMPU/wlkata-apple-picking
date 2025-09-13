@@ -118,9 +118,9 @@ if wait == True:
   ### Linear Regressions
   Linear regression is a simple method used to model the relationship between a dependent variable and one or more independent variables. In this case, the linear relationship determines the correlation between the camera’s x and y coordinates and the robot’s x and z coordinates . This involves performing two separate linear regressions: 
   
-  1. Mapping the camera’s _x-axis_ to the robot’s _x-axis_ <br>
+  1. Mapping the camera’s _x-axis_ to the robot’s _x-axis_: <br>
   ![linear-x](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/calc/linear-x.jpg?raw=true)
-  2. Mapping the camera’s _y-axis_ to the robot's _z-axis_ <br>
+  2. Mapping the camera’s _y-axis_ to the robot's _z-axis_: <br>
   ![linear-y](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/calc/linear-y.jpg?raw=true)
 
   The steps for performing linear regression are outlined below:
