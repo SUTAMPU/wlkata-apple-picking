@@ -116,9 +116,9 @@ This calibration ensures that when the camera detects an apple, the robot can co
   Linear regression is a simple method used to model the relationship between a dependent variable and one or more independent variables. In this case, the linear relationship determines the correlation between the camera’s x and y coordinates and the robot’s x and z coordinates . This involves performing two separate linear regressions: 
   
   1. Mapping the camera’s _x-axis_ to the robot’s _x-axis_ <br>
-  ![linear-x](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/cal/linear-x.jpg?raw=true)
+  ![linear-x](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/calc/linear-x.jpg?raw=true)
   2. Mapping the camera’s _y-axis_ to the robot's _z-axis_ <br>
-  ![linear-y](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/cal/linear-y.jpg?raw=true)
+  ![linear-y](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/calc/linear-y.jpg?raw=true)
 
   The steps for performing linear regression are outlined below:
   | Calculation | Mathematical Process | Coding Process |
@@ -143,7 +143,7 @@ This calibration ensures that when the camera detects an apple, the robot can co
   write("M3S0")
   ```
   Once these conditions are satisfied, the robot performs the following workflow:<br>
-  ![workflow](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/cal/workflow.jpg?raw=true)<br>
+  ![workflow](https://github.com/SUTAMPU/wlkata-apple-picking/blob/main/calc/workflow.jpg?raw=true)<br>
   
   The robot repeats this workflow until all apples have been collected, then returns to its home position to conclude the operation. The following shows how the robot should look like while collecting, suctioning, and placing apples into the cart.
 
