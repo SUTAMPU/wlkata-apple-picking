@@ -123,10 +123,10 @@ This calibration ensures that when the camera detects an apple, the robot can co
   The steps for performing linear regression are outlined below:
   | Calculation | Mathematical Process | Coding Process |
   | ----------- | -------------------- | -------------- |
-  | Slope _m_ | (math) | `n = len(x)`<br>`sx = sum(x)`<br>`sy = sum(y)`<br>`sx2 = sum(xi**2 for xi in x)`<br>`sxsy = sum(x[i] * y[i] for i in range(n))`<br><br>`m = (n * sxsy - sx * sy) / (n * sx2 - sx**2)` |
-  | Intercept _b_ | (math) | `b = (sy / n) - m * (sx / n)` |
-  | Equation | (math) | `for i in range (n):`<br>`  robot_x_pos = b_x + m_x * x[i] + offset_x`<br>`  robot_z_pos = b_z + m_z * y[i] + offset_y` |
-  
+  | Slope _m_ | $\frac{N \sum{(xy)} - \sum{x}\sum{y}}{N \sum{(x2)} - (\sum{x})2}$<br>_(where N is the number of points)_ | `n = len(x)`<br>`sx = sum(x)`<br>`sy = sum(y)`<br>`sx2 = sum(xi**2 for xi in x)`<br>`sxsy = sum(x[i] * y[i] for i in range(n))`<br><br>`m = (n * sxsy - sx * sy) / (n * sx2 - sx**2)` |
+  | Intercept _b_ | $\frac{\sum{y} - m\sum{x}}{N}$ | `b = (sy / n) - m * (sx / n)` |
+  | Equation | $y = \beta_0 + \beta_1X_1 + \beta_2X_2 + \dotsc + \beta_nX_n$ | `for i in range (n):`<br>`  robot_x_pos = b_x + m_x * x[i] + offset_x`<br>`  robot_z_pos = b_z + m_z * y[i] + offset_y` |
+
   Calibration values are the slope and intercept obtained from these regressions. They are crucial as they translate the camera coordinates into accurate robot coordinates. They ensure it moves accurately based on camera input. Without them, the robot may overshoot, undershoot, or move to completely wrong positions.
   
   ### Robot Commands
