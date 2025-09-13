@@ -103,14 +103,17 @@ if wait == True:
   | Colour thresholds | `colour = [(20, 71, 15, 45, -15, 40)]` |
   | Region of Interest (ROI) | `tree_roi = (bx - 20, by - 60, 80, 62)`<br>`lcd_roi = (0, 0, 128, 160)` |
   
-  The camera and robot do not share the same coordinate system. The camera detects objects in the x and y axes, while the robot moves along the x and z axes. To align them, we use calibration datasets to map camera pixel values to real robot positions. These mapping are then processed using linear regression to establish a mathematical relationship between the two coordinate systems.
-
-This calibration ensures that when the camera detects an apple, the robot can correctly interpret its real world location and move towards the exact position: <br>
+  The camera and robot do not share the same coordinate system. The camera detects objects in the x and y axes, while the robot moves along the x and z axes. To align them, we use calibration datasets to map camera pixel values to real robot positions. These mapping are then processed using linear regression to establish a mathematical relationship between the two coordinate systems. Therefore, calibration values are neeeded to ensure that when the camera detects an apple, the robot can correctly interpret its real world location and move towards the exact position: <br>
 
   | X-Axis Calibration | Z-Axis Calibration |
   | ------------------ | ------------------ |
   | `camera_x = [43, 61, 84, 80]` | `camera_y = [93, 105, 105, 100]` |
   | `robot_x = [197, 215, 231, 247]` | `robot_z = [126, 100, 132, 100]` |
+
+  To understand the dimension in this setup better, from the angle of you looking straight into the back side camera, where the tree will be furthest from you, and the robot will be in the middle left-side. This is what each axis will do:
+  1. The _x-axis_ moves the robot back to front _(away or towards the tree)_.
+  2. The _y-axis_ moves the robot left to right _(away or towards the cart)_.
+  3. The _z-axis_ moves the robot up and down _(away or towards the board)_.
 
   ### Linear Regressions
   Linear regression is a simple method used to model the relationship between a dependent variable and one or more independent variables. In this case, the linear relationship determines the correlation between the camera’s x and y coordinates and the robot’s x and z coordinates . This involves performing two separate linear regressions: 
